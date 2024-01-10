@@ -13,7 +13,7 @@ import Binance from '../../static/svg/BinanceIcon.svg'
 import Sollet from '../../static/svg/SolletIcon.svg'
 import NightlyIcon from '../../static/svg/NightlyIcon.svg'
 import ChainIcon from '../../static/svg/ChainIcon.svg'
-import { WalletSelectorItem } from '../../utils/types'
+import { FooterURLs, WalletSelectorItem } from '../../utils/types'
 
 const meta = {
   title: 'nightly-selector',
@@ -38,6 +38,7 @@ interface NightlyModalArgs {
   sessionId: string
   connecting: boolean
   relay: string
+  footerURLsOverride: Partial<FooterURLs>
 }
 type Story = StoryObj<NightlyModalArgs & { open: boolean }>
 
@@ -60,6 +61,7 @@ export const Default: Story = (args: NightlyModalArgs) => {
           .sessionId=${args.sessionId}
           ?connecting=${args.connecting}
           .relay=${args.relay}
+          .footerURLsOverride=${args.footerURLsOverride}
         ></nightly-selector>
       `
     : html``
@@ -114,5 +116,9 @@ Default.args = {
     'fsdhfdzfsdhgfzghggdfhbgchgbdfnvfbxhncvfjhzxdhgbhghfgfvzhfgjhgszdhgzxdfhgfzxdjfuhdfhgd',
   connecting: true,
   relay: 'https://nc2.nightly.app',
-  open: true
+  open: true,
+  footerURLsOverride:{
+    termsOfServiceURL: 'https://wallet.nightly.app/',
+    privacyPolicyURL: 'https://wallet.nightly.app/Nightly_Privacy_Policy.pdf'
+  }
 }

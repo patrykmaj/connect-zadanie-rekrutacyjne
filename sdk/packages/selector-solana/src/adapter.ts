@@ -33,6 +33,7 @@ import {
 import { StandardWalletAdapter } from '@solana/wallet-standard'
 import { PublicKey, Transaction, TransactionVersion, VersionedTransaction } from '@solana/web3.js'
 import { solanaWalletsFilter } from './detection'
+import { FooterURLs } from '@nightlylabs/wallet-selector-modal';
 
 export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
   name = 'Nightly Connect' as WalletName<'Nightly Connect'>
@@ -160,6 +161,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
@@ -184,7 +186,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -209,6 +212,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets)
@@ -233,7 +237,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     adapter._loading = true
@@ -262,6 +267,7 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectAdapter(appInitData, eagerConnectForStandardWallets, true)
@@ -286,7 +292,8 @@ export class NightlyConnectAdapter extends BaseMessageSignerWalletAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     return adapter

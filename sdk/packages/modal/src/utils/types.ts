@@ -19,3 +19,8 @@ export enum SelectorView {
   MOBILE_ALL,
   CONNECTING
 }
+
+export interface FooterURLs {
+  termsOfServiceURL?: string
+  privacyPolicyURL?: string
+}

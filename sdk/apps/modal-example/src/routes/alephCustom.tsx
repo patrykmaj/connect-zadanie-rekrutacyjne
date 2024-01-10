@@ -55,6 +55,10 @@ export default function Polkadot() {
           dotsOptions: {
             color: 'gold'
           }
+        },
+        footerURLsOverride: {
+          termsOfServiceURL: "https://alephzero.org/",
+          privacyPolicyURL: "https://alephzero.org/privacy-policy"
         }
       }
     )

@@ -24,6 +24,7 @@ import { type Signer as InjectedSigner } from '@polkadot/api/types'
 import { type Injected } from '@polkadot/extension-inject/types'
 import { IPolkadotWalletListItem, getPolkadotWalletsList } from './detection'
 import { networkToData, SupportedNetworks } from './utils'
+import { FooterURLs } from '@nightlylabs/wallet-selector-modal';
 export type AppSelectorInitialize = Omit<AppPolkadotInitialize, 'network'> & {
   network: SupportedNetworks
 }
@@ -147,6 +148,7 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     if (!useEagerConnect) {
@@ -166,7 +168,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectAdapter.initApp(appInitData)
@@ -190,6 +193,7 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     if (!useEagerConnect) {
@@ -209,7 +213,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     adapter._loading = true
@@ -240,6 +245,7 @@ export class NightlyConnectAdapter implements Injected {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     if (!useEagerConnect) {
@@ -259,7 +265,8 @@ export class NightlyConnectAdapter implements Injected {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     return adapter

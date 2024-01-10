@@ -33,6 +33,7 @@ import {
 import type { StandardEventsOnMethod, WalletAccount } from '@wallet-standard/core'
 import bs58 from 'bs58'
 import { suiWalletsFilter } from './detection'
+import { FooterURLs } from '@nightlylabs/wallet-selector-modal';
 
 export const convertBase58toBase64 = (base58: string) => {
   const buffer = bs58.decode(base58)
@@ -142,6 +143,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
@@ -161,7 +163,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     const [app, metadataWallets] = await NightlyConnectSuiAdapter.initApp(appInitData)
@@ -185,6 +188,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets)
@@ -204,7 +208,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     adapter._loading = true
@@ -230,6 +235,7 @@ export class NightlyConnectSuiAdapter {
       variablesOverride?: object
       stylesOverride?: string
       qrConfigOverride?: Partial<XMLOptions>
+      footerURLsOverride?: Partial<FooterURLs>
     }
   ) => {
     const adapter = new NightlyConnectSuiAdapter(appInitData, eagerConnectForStandardWallets, true)
@@ -250,7 +256,8 @@ export class NightlyConnectSuiAdapter {
       anchorRef,
       uiOverrides?.variablesOverride,
       uiOverrides?.stylesOverride,
-      uiOverrides?.qrConfigOverride
+      uiOverrides?.qrConfigOverride,
+      uiOverrides?.footerURLsOverride
     )
 
     return adapter
